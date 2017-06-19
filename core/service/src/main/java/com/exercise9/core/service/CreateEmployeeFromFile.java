@@ -26,8 +26,10 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly=false)
 public class CreateEmployeeFromFile {
 	private Logger logger = Logger.getLogger(CreateEmployeeFromFile.class);
 

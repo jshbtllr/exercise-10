@@ -12,8 +12,10 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly=false)
 public class EmployeeRoleServiceImpl implements EmployeeRoleServiceInterface {
 	private Logger logger = Logger.getLogger(EmployeeRoleServiceImpl.class);
 

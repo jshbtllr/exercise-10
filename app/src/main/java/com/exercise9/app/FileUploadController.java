@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,8 +31,8 @@ public class FileUploadController {
 	}
 
 	@RequestMapping(value="/fileupload", method=RequestMethod.POST)
-	public ModelAndView submitFile(@ModelAttribute("multipartFile") MultipartFile file) {
-		logger.info("File Upload onSubmit()");
+	public ModelAndView submitFile(@RequestParam MultipartFile file) {
+		logger.info("File Upload");
 		String message = null;
 
 		if(!file.isEmpty()) {

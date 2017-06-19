@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<form action="/fileupload" method="POST" modelAttribute="multipartFile" enctype="multipart/form-data">
+					<form action="/fileupload" method="POST" enctype="multipart/form-data">
 						<spring:message code="choose.file"/>: <input type="file" name="file"/>
 						<input type="submit" value="<spring:message code="submit"/>"/>
 					</form>

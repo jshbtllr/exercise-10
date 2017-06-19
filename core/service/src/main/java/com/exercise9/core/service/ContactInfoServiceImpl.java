@@ -13,8 +13,10 @@ import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly=false)
 public class ContactInfoServiceImpl implements ContactInfoServiceInterface {
 	private Logger logger = Logger.getLogger(ContactInfoServiceImpl.class);
 

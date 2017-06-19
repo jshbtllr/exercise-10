@@ -9,8 +9,10 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly=false)
 public class RoleCrudServiceImpl implements CrudServiceInterface <Roles> {
 	private Logger logger = Logger.getLogger(RoleCrudServiceImpl.class);
 	
@@ -27,6 +29,7 @@ public class RoleCrudServiceImpl implements CrudServiceInterface <Roles> {
 		}
 	}
 
+	@Transactional(readOnly=false)
 	public List <Roles> read(Integer sortRule, Boolean ascending) {
 		logger.info("List available Roles");
 		List <Roles> list = roleDao.showRoles(sortRule, ascending);

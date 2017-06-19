@@ -19,8 +19,10 @@ import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly=false)
 public class EmployeeCrudServiceImpl implements CrudServiceInterface <Employee> {
 	private Logger logger = Logger.getLogger(EmployeeCrudServiceImpl.class);
 
@@ -31,6 +33,7 @@ public class EmployeeCrudServiceImpl implements CrudServiceInterface <Employee> 
 		return employeeDao.add(employee);
 	}	
 
+	@Transactional(readOnly=true)
 	public List <Employee> read(Integer sortFunction, Boolean ascending) {
 		logger.info("List Employees");
 		List <Employee> list = employeeDao.showEmployees(sortFunction, ascending);
