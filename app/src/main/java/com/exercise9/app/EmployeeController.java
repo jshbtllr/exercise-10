@@ -32,7 +32,7 @@ public class EmployeeController {
 	private static final Boolean ascending = true;
 	private static final Boolean descending = false;
 
-	@RequestMapping(value="/employee", method=RequestMethod.GET)
+	@RequestMapping(value={"/employee","/"}, method=RequestMethod.GET)
 	public ModelAndView showEmployee(@RequestParam(required=false) String sort, @RequestParam(required=false) String order) {
 		logger.info("Employee Controller List Employees");
 
