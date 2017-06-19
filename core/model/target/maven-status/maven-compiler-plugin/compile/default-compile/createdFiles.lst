@@ -1,0 +1,7 @@
+com/exercise9/core/model/Employee.class
+com/exercise9/core/model/Address.class
+com/exercise9/core/model/ContactInfo.class
+com/exercise9/core/model/Roles.class
+com/exercise9/core/model/EmployeeGradeDTO.class
+com/exercise9/core/model/BaseEntity.class
+com/exercise9/core/model/Name.class
