@@ -14,12 +14,19 @@
 		<h4><spring:message code="current.employee"/></h4>
 		<table width=100%>
 			<security:authorize access="hasRole('ADMIN')">
-			<tr>
-				<td width=100% align="right">
+			<tr width=100%>
+				<td colspan="4" align="right">
 					<a href="/j_spring_security_logout"> logout </a>
 				</td>
 			</tr>
-		</security:authorize>
+			</security:authorize>
+			<security:authorize access="!isAuthenticated()">
+			<tr width=100%>
+				<td colspan="4" align="right">
+					<a href="/"> login </a>
+				</td>
+			</tr>
+			</security:authorize>
 			<tr>
 				<security:authorize access="hasRole('ADMIN')">
 					<td width=20% align="left">

@@ -11,8 +11,8 @@
       <intercept-url pattern="/admin" access="hasRole('ADMIN')" />
       <intercept-url pattern="/employee/update" access="hasRole('ADMIN')" />
       <intercept-url pattern="/employee/add" access="hasRole('ADMIN')" />
-      <intercept-url pattern="/role/update" access="hasRole('ADMIN')" />
-      <intercept-url pattern="/role/add" access="hasRole('ADMIN')" />      
+      <intercept-url pattern="/roles/update" access="hasRole('ADMIN')" />
+      <intercept-url pattern="/roles/add" access="hasRole('ADMIN')" />      
       <intercept-url pattern="/fileupload" access="hasRole('ADMIN')" /> 
 
       <form-login
