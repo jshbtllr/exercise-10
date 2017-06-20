@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix = "spring" uri = "http://www.springframework.org/tags"%>
+<%@taglib prefix = "security" uri = "http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 
 <html>
@@ -15,9 +15,11 @@
 			<td width=20% align="left">
 				<a href="/employee"> <spring:message code="back"/> </a>
 			</td>
-			<td width=20% align="center">
-				<a href="/roles/add"><spring:message code="role.link"/></a>
-			</td>
+			<security:authorize access="hasRole('ADMIN')">
+				<td width=20% align="center">
+					<a href="/roles/add"><spring:message code="role.link"/></a>
+				</td>
+			</security:authorize>
 			<td width=20% align="center">
 				Language: <a href="?language=en"> <spring:message code="english"/> </a> | <a href="?language=de"> <spring:message code="german"/> </a>
 			</td>
@@ -44,7 +46,9 @@
 					<th width=8%><spring:message code="role.id"/></th>
 					<th width=15%><spring:message code="role.code"/></th>
 					<th width=25%><spring:message code="role.name"/></th>
-					<th width=15%><spring:message code="action"/></th>
+					<security:authorize access="hasRole('ADMIN')">
+						<th width=15%><spring:message code="action"/></th>
+					</security:authorize>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,16 +57,18 @@
 						<td align="center">${role.id}</td>
 						<td align="center">${role.roleCode}</td>
 						<td align="center">${role.roleName}</td>
-						<td align="center">
-							<form roles="/roles" method="POST">
-								<input type="hidden" name="roleId" value="${role.id}"/>
-								<input type="submit" value="<spring:message code="delete"/>"/>
-							</form>
-							<form action="/roles/update" method="GET">
-								<input type="hidden" name="roleId" value="${role.id}"/>
-								<input type="submit" value="<spring:message code="update"/>"/>
-							</form>
-						</td>
+						<security:authorize access="hasRole('ADMIN')">
+							<td align="center">
+								<form roles="/roles" method="POST">
+									<input type="hidden" name="roleId" value="${role.id}"/>
+									<input type="submit" value="<spring:message code="delete"/>"/>
+								</form>
+								<form action="/roles/update" method="GET">
+									<input type="hidden" name="roleId" value="${role.id}"/>
+									<input type="submit" value="<spring:message code="update"/>"/>
+								</form>
+							</td>
+						</security:authorize>
 					</tr>
 				</core:forEach>
 			</tbody>
