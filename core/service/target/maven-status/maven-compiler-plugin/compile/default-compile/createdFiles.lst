@@ -1,9 +1,0 @@
-com/exercise9/core/service/EmployeeCrudServiceImpl.class
-com/exercise9/core/service/gwaComparator.class
-com/exercise9/core/service/CrudServiceInterface.class
-com/exercise9/core/service/RoleCrudServiceImpl.class
-com/exercise9/core/service/EmployeeRoleServiceImpl.class
-com/exercise9/core/service/ContactInfoServiceInterface.class
-com/exercise9/core/service/CreateEmployeeFromFile.class
-com/exercise9/core/service/EmployeeRoleServiceInterface.class
-com/exercise9/core/service/ContactInfoServiceImpl.class
